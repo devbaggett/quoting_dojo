@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quotes</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dojo_survey_style.css') }}">
+</head>
+<body>
+	<div style="text-align: center">
+		<div style="border: 1px solid black; display: inline-block; padding: 10px; text-align: left; margin-top: 100px;">
+			<div>
+				<h2>Here are the awesome quotes!</h2>
+				<% for (var i in quotes){ %>
+					<p>"<%= quotes[i].quote %>"</p>
+					<p style="margin-left: 20px;">-<%= quotes[i].name %> on <%= moment(quotes[i].createdAt).format( 'MMM-DD-YYYY') %></p>
+					<hr>
+				<% } %>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

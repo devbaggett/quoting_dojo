@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quoting Dojo</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dojo_survey_style.css') }}">
+</head>
+<body>
+	<div style="text-align: center">
+		<div style="border: 1px solid black; display: inline-block; padding: 10px; text-align: left; margin-top: 100px;">
+			<% if(typeof(errors) != 'undefined'){ %>
+				<% for (var x in errors) { %>
+					<p><%= errors[x].message %></p>
+				<% } %>
+			<% } %>
+			<h1>Welcome to QuotingDojo</h1>
+		    <form action="/quotes" method="POST">
+			    <div>
+			        <label>Name: </label>
+			        <input type="text" name="name">
+			   	</div>
+			   	<div>
+			        <label>Quote: </label>
+			        <textarea name="quote"></textarea>
+			   	</div>			
+		        <div id="submit_button">
+		        	<input type="submit" value="Add my quote!">
+		        </div>
+		    </form>
+		    <input type="button" onclick="location.href='/display_quotes';" value="Skip to quotes!">
+		</div>
+	</div>
+</body>
+</html>
